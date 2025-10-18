@@ -9,13 +9,17 @@ html {
 }
 
 .page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: 'Fira Sans Condensed', Arial, sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  padding: 133px 30px;
 }
 
 h1,
@@ -37,15 +41,333 @@ ol {
   list-style: none;
 }
 
-/* Кастомный скроллбар */
-.custom-scrollbar::-webkit-scrollbar {
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: flex-end;
+  width: 1140px;
+  column-gap: 30px;
+}
+
+.result__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.content__list {
+  position: relative; 
+  height: 296px;
+  overflow: auto;
+}
+
+.content__details {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+  padding: 2px 0 0;
+}
+
+.result__video-container {
+  position: relative;
+  width: 711px;
+  height: 386px;
+}
+
+.content__list-item {
+  display: flex;
+  gap: 32px;
+}
+
+.content__video-card {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  padding: 15px;
+}
+
+.content__video-card-thumbnail {
+  width: 194px;
+  height: 103px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.content__video-card-description-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.search-form__fieldset-title {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+.title {
+  font-family: Oswald, sans-serif;
+  font-size: 75px;
+  font-weight: 700;
+  line-height: 0.94;
+  text-transform: uppercase;
+  cursor: default;
+}
+
+.content__card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+} 
+
+.content__video-card-title {
+  max-width: 200px;
+  font-family: Oswald, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content__video-card-description {
+  max-width: 200px;
+  font-weight: 400;
+  line-height: 0.9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 212px;
+  margin: 0 0 5px;
+}
+
+.search-form__fieldset {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  border: none;
+  cursor: default;
+}
+
+.search-form__label {
+  display: flex;
+  width: fit-content;
+}
+
+.search-form__textfield {  
+  width: 225px;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 400;
+  background-color: inherit;
+  appearance: none;
+  border: none;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 212px;
+  margin: 0 0 5px;
+}
+
+.search-form__pseudo-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 19px;
+  height: 19px;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.search-form__checkbox:active + .search-form__pseudo-checkbox::after {
+  content: '';  
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  content: '';
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+}
+
+.search-form__textfield:active {
+  outline: 1px solid #fff;
+  border: none;
+}
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__textfield:hover {
+  cursor: text;
+}
+
+.search-form__label:focus {
+  outline: none;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.search-form__label-text:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  text-underline-offset: 3px;
+}
+
+.content__card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: flex-end;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+  background-color: inherit;
+  border: 1px solid currentColor;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+.button:active {
+  background-color: #545050;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: -3px;
+}
+
+.button:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.search-form__submit-button {
+  min-width: 194px;
+}
+
+.content__accent {
+  color: #545050;
+}
+
+.content__list-item:not(:last-child) {
+  margin: 0 0 30px;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: -1px;
+}
+
+.content__card-link:hover {
+  text-decoration: underline;
+}
+
+.content__card-link:active {
+  background-color: transparent;
+}
+
+.content__card-link_current {
+  background-color: #545050;
+}
+
+.content__video-card {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  padding: 2px;
+}
+
+.content__video-card-description-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.more-button {
+  min-width: 399px;
+}
+
+.content__list-container {
+  position: relative;
+}
+
+.content__list::-webkit-scrollbar {
   width: 4px;
 }
 
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: rgb(217 217 217 / 10%);
+.content__list::-webkit-scrollbar-track {
+  background: rgba(217, 217, 217, 0.1);
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #D9D9D9;
+.content__list::-webkit-scrollbar-thumb {
+  background: rgba(217, 217, 217, 1);
+  width: 4px;
 }

@@ -108,7 +108,7 @@ ol {
 .content__video-card-thumbnail {
   width: 194px;
   height: 103px;
-  object-fit: cover;
+  object-fit: cover;                        
   object-position: center;
 }
 
@@ -159,13 +159,13 @@ ol {
   text-overflow: ellipsis;
 }
 
-.search-form__checkbox-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-width: 212px;
-  margin: 0 0 5px;
-}
+  .search-form__checkbox-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 212px;
+    margin: 0 0 5px;
+  }
 
 .search-form__fieldset {
   display: flex;
@@ -207,13 +207,6 @@ ol {
   height: 19px;
   border: 1px solid #fff;
   cursor: pointer;
-}
-
-.search-form__checkbox:active + .search-form__pseudo-checkbox::after {
-  content: '';  
-  width: 15px;
-  height: 15px;
-  background-color: #fff;
 }
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::after {

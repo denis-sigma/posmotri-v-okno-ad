@@ -1,2 +1,1 @@
-[посмотри в окно
-](https://denis-sigma.github.io/posmotri-v-okno-ad/)
+https://github.com/denis-sigma/posmotri-v-okno-ad
